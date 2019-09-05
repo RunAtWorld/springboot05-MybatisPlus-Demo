@@ -1,4 +1,4 @@
-package dev.lpf.mpdemo;
+package dev.lpf.mpdemo.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

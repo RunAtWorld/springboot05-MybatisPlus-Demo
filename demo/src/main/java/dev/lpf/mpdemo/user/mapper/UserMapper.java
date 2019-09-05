@@ -1,4 +1,4 @@
-package dev.lpf.mp.user.mapper;
+package dev.lpf.mpdemo.user.mapper;
 
 import dev.lpf.user.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

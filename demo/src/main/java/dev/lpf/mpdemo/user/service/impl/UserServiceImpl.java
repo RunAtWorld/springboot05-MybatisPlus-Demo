@@ -1,4 +1,4 @@
-package dev.lpf.mp.user.service.impl;
+package dev.lpf.mpdemo.user.service.impl;
 
 import dev.lpf.user.entity.User;
 import dev.lpf.user.mapper.UserMapper;

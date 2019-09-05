@@ -1,4 +1,4 @@
-package dev.lpf.mp.user.controller;
+package dev.lpf.mpdemo.user.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

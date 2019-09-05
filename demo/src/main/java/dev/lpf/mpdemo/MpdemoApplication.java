@@ -1,4 +1,4 @@
-package dev.lpf;
+package dev.lpf.mpdemo;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import org.mybatis.spring.annotation.MapperScan;
