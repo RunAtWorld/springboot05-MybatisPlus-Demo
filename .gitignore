@@ -24,6 +24,7 @@ dependency-reduced-pom.xml
 
 # IntelliJ IDEA Files
 
+.target
 *.iml
 *.ipr
 *.iws
