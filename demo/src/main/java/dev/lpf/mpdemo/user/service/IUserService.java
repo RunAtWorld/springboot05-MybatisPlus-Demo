@@ -1,7 +1,7 @@
 package dev.lpf.mpdemo.user.service;
 
-import dev.lpf.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import dev.lpf.mpdemo.user.entity.User;
 
 /**
  * <p>

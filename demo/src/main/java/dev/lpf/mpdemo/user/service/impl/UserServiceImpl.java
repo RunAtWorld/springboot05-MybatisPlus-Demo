@@ -1,9 +1,10 @@
 package dev.lpf.mpdemo.user.service.impl;
 
-import dev.lpf.user.entity.User;
-import dev.lpf.user.mapper.UserMapper;
-import dev.lpf.user.service.IUserService;
+
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import dev.lpf.mpdemo.user.entity.User;
+import dev.lpf.mpdemo.user.mapper.UserMapper;
+import dev.lpf.mpdemo.user.service.IUserService;
 import org.springframework.stereotype.Service;
 
 /**

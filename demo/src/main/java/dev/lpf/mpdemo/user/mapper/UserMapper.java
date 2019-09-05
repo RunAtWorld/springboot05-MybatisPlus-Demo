@@ -1,7 +1,8 @@
 package dev.lpf.mpdemo.user.mapper;
 
-import dev.lpf.user.entity.User;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import dev.lpf.mpdemo.user.entity.User;
 
 /**
  * <p>

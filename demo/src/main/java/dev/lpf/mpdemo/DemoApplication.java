@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
 @MapperScan("dev.lpf.mpdemo.*.mapper")
-public class MpdemoApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MpdemoApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 
 }
