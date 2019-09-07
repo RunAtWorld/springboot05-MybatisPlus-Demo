@@ -1,5 +1,6 @@
 # springboot05-MybatisPlus-Demo
-
+1. generator 为 Mybatis Plus代码生成器 Demo 项目
+2. mpdemo 为 使用 generator 生成的 Mybatis Plus 代码
 
 
 # 参考
