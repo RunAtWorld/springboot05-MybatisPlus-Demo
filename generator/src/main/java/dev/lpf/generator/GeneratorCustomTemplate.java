@@ -20,9 +20,14 @@ import java.util.Map;
  * </p>
  */
 public class GeneratorCustomTemplate {
-    static String dbUrl;
-    static String packageName;
-
+    String packageName = "dev.lpf.mpdemo";
+    String moduleName = "order";
+    String baseProjectPath = System.getProperty("user.dir") + "/mpdemo";
+    String dbUrl = "jdbc:mysql://127.0.0.1:3306/mydb2?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8" +
+            "&allowMultiQueries=true";
+    String dbUser = "root";
+    String dbPassword = "123456";
+    String dbDriver = "com.mysql.jdbc.Driver";
     /**
      * 是否强制带上注解
      */
@@ -42,31 +47,44 @@ public class GeneratorCustomTemplate {
      */
     boolean serviceClassNameStartWithI = true;
 
-
     public static void main(String[] args) {
         new GeneratorCustomTemplate().generateCodeWithInjectConfig();
     }
 
+    public GeneratorCustomTemplate() {
+    }
+
+    /**
+     * 从配置文件加载
+     *
+     * @param configGetter 配置加载器
+     */
+    public GeneratorCustomTemplate(ConfigGetter configGetter) {
+        this.packageName = configGetter.getConfigProp("packageName");
+        this.moduleName = configGetter.getConfigProp("moduleName");
+        this.baseProjectPath = (null == configGetter.getConfigProp("baseProjectPath")) ?
+                System.getProperty("user.dir") : configGetter.getConfigProp("baseProjectPath");
+        this.dbUrl = configGetter.getConfigProp("dbUrl");
+        this.dbUser = configGetter.getConfigProp("dbUser");
+        this.dbPassword = configGetter.getConfigProp("dbPassword");
+        this.dbDriver = configGetter.getConfigProp("dbDriver");
+    }
+
     public void generateCodeWithInjectConfig() {
-        String packageName = "dev.lpf";
-        String moudleName = "user";
         enableTableFieldAnnotation = false;
         tableIdType = null;
-        generateByTablesWithInjectConfig(packageName + "." + moudleName, "t_user");
+        generateByTablesWithInjectConfig(packageName + "." + moduleName, "t_order");
     }
 
     private void generateByTablesWithInjectConfig(String packageName, String... tableNames) {
-        String baseProjectPath = System.getProperty("user.dir");
-
         GlobalConfig config = new GlobalConfig();
-        String dbUrl = "jdbc:mysql://127.0.0.1:3306/mydb1?useUnicode=true&characterEncoding=UTF-8" +
-                "&allowMultiQueries=true";
+
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL)
                 .setUrl(dbUrl)
-                .setUsername("root")
-                .setPassword("123456")
-                .setDriverName("com.mysql.jdbc.Driver");
+                .setUsername(dbUser)
+                .setPassword(dbPassword)
+                .setDriverName(dbDriver);
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig
                 .setVersionFieldName("version")
