@@ -1,3 +1,5 @@
+package dev.lpf.generator;
+
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -22,16 +24,16 @@ import java.util.Map;
  */
 public class GeneratorCustomTemplate {
 
-    private final static String[] tablePrefix = new String[] {"t_"};
+    private final static String[] tablePrefix = new String[] {"h_"};
 
-    static String[] tableNames = new String[] {"t_employee"};
+    static String[] tableNames = new String[] {"h_ncov","h_ncov_us"};
 
-    static String mouduleName = "employee";
+    static String mouduleName = "ncov";
 
-    static String packageName = "dev.lpf";
+    static String packageName = "cn.papertalk";
 
     static String dbUrl =
-        "jdbc:mysql://127.0.0.1:3306/mydb2?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8" +
+        "jdbc:mysql://127.0.0.1:3306/ncov?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8" +
             "&allowMultiQueries=true";
 
     static String dbUserName = "root";
@@ -42,7 +44,7 @@ public class GeneratorCustomTemplate {
 
     private static String projectSrcPath = "/mpdemo";
 
-    static String baseProjectPath = System.getProperty("user.dir") + projectSrcPath;
+    static String baseProjectPath = "F:\\src_papertalk\\ncovdata_service";
 
     private static String xmlTemplatePath = "/templates/mapper.xml.vm";
 
