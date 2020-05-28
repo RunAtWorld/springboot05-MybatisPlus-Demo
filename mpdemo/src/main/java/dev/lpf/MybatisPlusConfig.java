@@ -3,12 +3,11 @@ package dev.lpf;
 import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@MapperScan({"dev.lpf.springboot05mybatisplusdemo.*.dao.mapper","dev.lpf.springboot05mybatisplusdemo.crm.check.dao" +
-//        ".mapper"})
 public class MybatisPlusConfig {
     /**
      * 自定义配置{@link MybatisSqlSessionFactoryBean}
