@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: local
   datasource:
     dynamic:
       #druid全局连接参数配置
@@ -28,23 +30,21 @@ spring:
           wall:
             config:
               multi-statement-allow: true
-      primary: mydb2
-      strict: false
-      datasource:
-        mydb1:
-          url: jdbc:mysql://127.0.0.1:3306/mydb1?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: root
-          password: 123456
-          driver-class-name: com.mysql.jdbc.Driver
-        mydb2:
-          url: jdbc:mysql://127.0.0.1:3306/mydb2?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: root
-          password: 123456
-          driver-class-name: com.mysql.jdbc.Driver
 
-server:
-  port: 8087
+mybatis:
+  # 指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#  schema:
+#    - classpath:sql/*.sql
+
 
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+
