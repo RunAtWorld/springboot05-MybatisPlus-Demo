@@ -5,38 +5,50 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 
+/**
+ * ConfigGetter
+ */
 public class ConfigGetter {
 
     /**
      * 配置文件名
      */
-    private String configFilePath = System.getProperty("user.dir")+"/generator.propertie";
+    private String configFilePath = System.getProperty("user.dir") + "/generator.propertie";
 
     private Properties properties;
 
-    public ConfigGetter(String configFilePath){
-        this.configFilePath =configFilePath;
-        loadProPerty(this.configFilePath);
+    public ConfigGetter(String configFilePath) {
+        this.configFilePath = configFilePath;
+        loadProPerty();
     }
 
-    private void loadProPerty(String configFilePath){
+    public ConfigGetter() {
+        loadProPerty();
+    }
+
+    public static ConfigGetter getOneConfigGetter() {
+        return new ConfigGetter();
+    }
+
+    public static ConfigGetter getOneConfigGetter(String configFilePath) {
+        return new ConfigGetter(configFilePath);
+    }
+
+    private Properties loadProPerty() {
         try {
-            // URL url = ClassLoader.getSystemResource(configFilePath);
-            System.out.println(configFilePath);
-            // System.out.println(url);
-            // FileInputStream fis = new FileInputStream(url.getFile());
-            FileInputStream fis = new FileInputStream("F:\\myGitRepo\\springboot05-MybatisPlus-Demo\\generator\\generator.properties");
-            this.properties = new Properties();// 属性集合对象
-            properties.load(fis);// 将属性文件流装载到Properties对象中
+            URL url = ClassLoader.getSystemResource(this.configFilePath);
+            FileInputStream fis = new FileInputStream(url.getFile());
+            this.properties = new Properties();
+            this.properties.load(fis);
+            return this.properties;
         } catch (IOException e) {
-            System.out.println("can't find the file:"+ this.configFilePath);
+            System.out.println("can't find the file:" + this.configFilePath);
         }
+        return null;
     }
 
-    public String getConfigProp(String configProName){
+    public String getConfigProp(String configProName) {
         return this.properties.getProperty(configProName);
     }
-
-
 
 }
