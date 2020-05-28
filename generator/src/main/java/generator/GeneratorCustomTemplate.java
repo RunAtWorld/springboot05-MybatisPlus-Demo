@@ -27,7 +27,7 @@ public class GeneratorCustomTemplate {
 
     private static String[] tablePrefix = new String[] {"h_"};
 
-    static String[] tableNames = new String[] {"h_ncov","h_ncov_us"};
+    static String[] tableNames = new String[] {"cn_citydata","cn_provincedata"};
 
     static String mouduleName = "ncov";
 
@@ -94,9 +94,9 @@ public class GeneratorCustomTemplate {
 
     public static void main(String[] args) {
         //使用默认配置
-        // new GeneratorCustomTemplate().generateCodeWithInjectConfig();
+        new GeneratorCustomTemplate().generateCodeWithInjectConfig();
         // 使用自定义配置文件
-        new GeneratorCustomTemplate("generator.properties").generateCodeWithInjectConfig();
+        // new GeneratorCustomTemplate("generator.properties").generateCodeWithInjectConfig();
     }
 
 
