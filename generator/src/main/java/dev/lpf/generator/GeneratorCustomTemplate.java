@@ -69,10 +69,35 @@ public class GeneratorCustomTemplate {
      * user表 -> IUserService, UserServiceImpl
      */
     boolean serviceClassNameStartWithI = true;
+    
+    public GeneratorCustomTemplate() {
+    }
+
+    /**
+     * 从配置文件加载
+     *
+     * @param configFilePath 配置文件路径
+     */
+    public GeneratorCustomTemplate(String configFilePath) {
+        ConfigGetter configGetter = ConfigGetter.getOneConfigGetter(configFilePath);
+        packageName = configGetter.getConfigProp("packageName");
+        mouduleName = configGetter.getConfigProp("mouduleName");
+        dbUrl = configGetter.getConfigProp("url");
+        dbUserName = configGetter.getConfigProp("username");
+        tableNames = configGetter.getConfigProp("tableNames").split(",");
+        tablePrefix = configGetter.getConfigProp("tablePrefix").split(",");
+        dbPassword = configGetter.getConfigProp("password");
+        dbDriverName = configGetter.getConfigProp("driver-class-name");
+        baseProjectPath = configGetter.getConfigProp("baseProjectPath");
+    }
 
     public static void main(String[] args) {
-        new GeneratorCustomTemplate().generateCodeWithInjectConfig();
+        //使用默认配置
+        // new GeneratorCustomTemplate().generateCodeWithInjectConfig();
+        // 使用自定义配置文件
+        new GeneratorCustomTemplate("jdbc.properties").generateCodeWithInjectConfig();
     }
+
 
     public void generateCodeWithInjectConfig() {
         enableTableFieldAnnotation = false;
